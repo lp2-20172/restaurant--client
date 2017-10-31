@@ -4,6 +4,7 @@ import {authReducer as auth} from '../components/utils/OAuth2'
 import categoria from './categoria-reducer'
 import producto from './producto-reducer'
 import cliente from './cliente-reducer'
+import pedido from './pedido-reducer'
 //import ecomm from './ecommReducer'
 import themeReducer from './appLayoutReducer'
 
@@ -14,6 +15,7 @@ var reducers = combineReducers({
     categoria: categoria,
     producto: producto,
     cliente: cliente,
+    pedido: pedido,
     //  ecomm: ecomm,
     theme: themeReducer,
 

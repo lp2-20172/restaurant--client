@@ -5,7 +5,11 @@ import ProductoList from './catalogo/producto/List'
 import ProductoForm from './catalogo/producto/Form'
 import ClienteList from './catalogo/cliente/List'
 import ClienteForm from './catalogo/cliente/Form'
+import PedidoList from './catalogo/pedido/List'
+import PedidoForm from './catalogo/pedido/Form'
 import Login from './Login'
+
+
 
 const routese = [
     {
@@ -95,6 +99,29 @@ const routes = [
                 title: 'cliente Edit',
                 icon: 'send',
                 component: ClienteForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/pedido/list',
+                exact: true,
+                title: 'pedido',
+                icon: 'fa fa-list fa-fw',
+                component: PedidoList
+            },
+            {
+                path: '/catalogo/pedido/new',
+                exact: true,
+                title: 'pedido New',
+                icon: 'send',
+                component: PedidoForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/pedido/edit/:id',
+                exact: true,
+                title: 'pedido Edit',
+                icon: 'send',
+                component: PedidoForm,
                 novisible: true
             },
         ]
