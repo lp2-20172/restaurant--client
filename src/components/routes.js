@@ -5,11 +5,18 @@ import ProductoList from './catalogo/producto/List'
 import ProductoForm from './catalogo/producto/Form'
 import ClienteList from './catalogo/cliente/List'
 import ClienteForm from './catalogo/cliente/Form'
+<<<<<<< HEAD
 import MesaList from './catalogo/mesa/List'
 import MesaForm from './catalogo/mesa/Form'
 import ReservaList from './catalogo/reserva/List'
 import ReservaForm from './catalogo/reserva/Form'
+=======
+import PedidoList from './catalogo/pedido/List'
+import PedidoForm from './catalogo/pedido/Form'
+>>>>>>> 06bd59aecad18b0a50ead5ae80a19e659887d405
 import Login from './Login'
+
+
 
 const routese = [
     {
@@ -102,6 +109,7 @@ const routes = [
                 novisible: true
             },
             {
+<<<<<<< HEAD
                 path: '/catalogo/mesa/list',
                 exact: true,
                 title: 'mesa',
@@ -145,6 +153,28 @@ const routes = [
                 title: 'reserva Edit',
                 icon: 'send',
                 component: ReservaForm,
+=======
+                path: '/catalogo/pedido/list',
+                exact: true,
+                title: 'pedido',
+                icon: 'fa fa-list fa-fw',
+                component: PedidoList
+            },
+            {
+                path: '/catalogo/pedido/new',
+                exact: true,
+                title: 'pedido New',
+                icon: 'send',
+                component: PedidoForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/pedido/edit/:id',
+                exact: true,
+                title: 'pedido Edit',
+                icon: 'send',
+                component: PedidoForm,
+>>>>>>> 06bd59aecad18b0a50ead5ae80a19e659887d405
                 novisible: true
             },
         ]
