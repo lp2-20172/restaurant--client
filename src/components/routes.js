@@ -5,6 +5,10 @@ import ProductoList from './catalogo/producto/List'
 import ProductoForm from './catalogo/producto/Form'
 import ClienteList from './catalogo/cliente/List'
 import ClienteForm from './catalogo/cliente/Form'
+import MesaList from './catalogo/mesa/List'
+import MesaForm from './catalogo/mesa/Form'
+import ReservaList from './catalogo/reserva/List'
+import ReservaForm from './catalogo/reserva/Form'
 import Login from './Login'
 
 const routese = [
@@ -95,6 +99,52 @@ const routes = [
                 title: 'cliente Edit',
                 icon: 'send',
                 component: ClienteForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/mesa/list',
+                exact: true,
+                title: 'mesa',
+                icon: 'fa fa-list fa-fw',
+                component: MesaList
+            },
+            {
+                path: '/catalogo/mesa/new',
+                exact: true,
+                title: 'mesa New',
+                icon: 'send',
+                component: MesaForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/mesa/edit/:id',
+                exact: true,
+                title: 'mesa Edit',
+                icon: 'send',
+                component: MesaForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/reserva/list',
+                exact: true,
+                title: 'reserva',
+                icon: 'fa fa-list fa-fw',
+                component: ReservaList
+            },
+            {
+                path: '/catalogo/reserva/new',
+                exact: true,
+                title: 'reserva New',
+                icon: 'send',
+                component: ReservaForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/reserva/edit/:id',
+                exact: true,
+                title: 'reserva Edit',
+                icon: 'send',
+                component: ReservaForm,
                 novisible: true
             },
         ]
