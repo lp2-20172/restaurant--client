@@ -133,14 +133,14 @@ const routes = [
                 novisible: true
             },
             {
-                path: '/catalogo/reserva/list',
+                path: '/catalogo/reservas/list',
                 exact: true,
                 title: 'reserva',
                 icon: 'fa fa-list fa-fw',
                 component: ReservaList
             },
             {
-                path: '/catalogo/reserva/new',
+                path: '/catalogo/reservas/new',
                 exact: true,
                 title: 'reserva New',
                 icon: 'send',
@@ -148,12 +148,13 @@ const routes = [
                 novisible: true
             },
             {
-                path: '/catalogo/reserva/edit/:id',
+                path: '/catalogo/reservas/edit/:id',
                 exact: true,
                 title: 'reserva Edit',
                 icon: 'send',
                 component: ReservaForm,
-
+            },
+            {
                 path: '/catalogo/pedido/list',
                 exact: true,
                 title: 'pedido',

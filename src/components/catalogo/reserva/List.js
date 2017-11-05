@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/lib/Button';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
-import Table from  'react-bootstrap/lib/Table'
+import Table from 'react-bootstrap/lib/Table'
 
 
 class List extends Component {
@@ -21,7 +21,7 @@ class List extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/catalogo/reserva/new');
+        this.props.history.push('/catalogo/reservas/new');
     }
 
     render() {
@@ -44,11 +44,10 @@ class List extends Component {
                             <thead>
                             <tr>
                                 <th className="text-center">#</th>
-                                <th>Fecha</th>
-                                <th>Fecha finalizada</th>
-                                <th>cliente nombre</th>
-                                <th>numero de mesa</th>
-                             
+                                <th className="text-center">Fecha</th>
+                                <th className="text-center">N° de Mesa</th>
+                                <th className="text-center">Nombre del cliente</th>
+                                <th className="text-center">Finalizada?</th>
                                 <th className="text-center">Opciones</th>
                             </tr>
                             </thead>
@@ -56,15 +55,15 @@ class List extends Component {
                             {list.map((d, index) =>
                                 <tr key={index}>
                                     <td className="text-center">{index + 1} </td>
-                                    <td>{d.finalizada} </td>
                                     <td>{d.fecha}</td>
-                                    <td>{d.cliente}</td>
-                                    <td>{d.mesa}</td>
-                                    
+                                    <td className="text-center">{d.num_mesa}</td>
+                                    <td>{d.cliente_nombres}</td>
+                                    <td className="text-center">{d.finalizada ? "SI" : "NO"} </td>
                                     <td className="text-center">
-                                        <Link to={`/catalogo/reserva/edit/${d.id}`}  className="btn btn-info btn-sm"
+                                        <Link to={`/catalogo/reservas/edit/${d.id}`} className="btn btn-info btn-sm"
                                               role="button"><i className="fa fa-edit"/></Link> {" "}
-                                        <Button bsSize="small" bsStyle="danger" onClick={() => del(d.id, this.props.history)}><i
+                                        <Button bsSize="small" bsStyle="danger"
+                                                onClick={() => del(d.id, this.props.history)}><i
                                             className="fa fa-trash"/></Button>
                                     </td>
                                 </tr>

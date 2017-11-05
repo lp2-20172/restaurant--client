@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {Button, ControlLabel, Form, FormControl, FormGroup, PageHeader, Panel} from 'react-bootstrap';
+import {Button, Checkbox, ControlLabel, Form, FormControl, FormGroup, PageHeader, Panel} from 'react-bootstrap';
 import FormControlFeedback from 'react-bootstrap/lib/FormControlFeedback';
 import {getById, save, update} from '../../../actions/reserva-action'
+import {getList as getMesaList} from '../../../actions/mesa-action'
+import {getList as getClienteList} from '../../../actions/cliente-action'
 import {connect} from 'react-redux'
 
 class Formm extends Component {
@@ -10,26 +12,32 @@ class Formm extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            mesa: props.data ? props.data.mesa : '',
+            cliente: props.data ? props.data.cliente : '',
+            finalizada: props.data ? props.data.finalizada : '',
+            fecha: props.data ? props.data.fecha : ''
         }
     }
 
     componentWillMount = () => {
+        this.props.getMesaList("")
+        this.props.getClienteList("")
     }
 
-    componentDidMount = () => {
+    /*componentDidMount = () => {
         const {id} = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    codigo: data.codigo,
-                    nombre: data.nombre
+                    mesa: data.mesa,
+                    cliente: data.cliente,
+                    finalizada: data.finalizada,
+                    fecha: data.fecha,
                 });
             });
         }
-    }
+    }*/
 
     handleChange = (event) => {
         const target = event.target;
@@ -52,6 +60,7 @@ class Formm extends Component {
     }
 
     render() {
+        let {cliente_list, mesa_list} = this.props
         return (
             <div>
                 <div className="row">
@@ -65,60 +74,59 @@ class Formm extends Component {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <Form>
-                                        <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Nombre</ControlLabel>
+                                        <FormGroup className="col-lg-4">
+                                            <ControlLabel>Mesa</ControlLabel>
+                                            <FormControl
+                                                componentClass="select"
+                                                placeholder="Seleccione una Mesa"
+                                                value={this.state.mesa}
+                                                name="mesa"
+                                                onChange={this.handleChange}
+                                            >
+                                                {mesa_list.map((d, index) =>
+                                                    <option key={index} value={d.id}>Piso {d.piso} - #{d.numMesa}
+                                                        [Libre? {d.libre ? "Si" : "No"}]</option>
+                                                )}
+                                            </FormControl>
+                                        </FormGroup>
+                                        <FormGroup className="col-lg-3">
+                                            <ControlLabel>Fecha</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                placeholder="Enter Text"
-                                                name="nombre"
-                                                value={this.state.nombre}
+                                                value={this.state.fecha}
+                                                name="fecha"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>tipoMesa</ControlLabel>
+                                        <FormGroup className="col-lg-5">
+                                            <ControlLabel>Cliente</ControlLabel>
                                             <FormControl
-                                                type="text"
-                                                value={this.state.tipoMesa}
-                                                name="tipoReserva"
+                                                componentClass="select"
+                                                placeholder="Seleccione un cliente"
+                                                value={this.state.cliente}
+                                                name="cliente"
                                                 onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
+                                            >
+                                                {cliente_list.map((d, index) =>
+                                                    <option key={index}
+                                                            value={d.id}>{d.nombre} {d.apePaterno} {d.apeMaterno}</option>
+                                                )}
+                                            </FormControl>
                                         </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>uniMedida</ControlLabel>
-                                            <FormControl
-                                                type="text"
-                                                value={this.state.uniMedida}
-                                                name="uniMedida"
+                                        <FormGroup className="col-lg-12">
+                                            <Checkbox
+                                                value={this.state.finalizada}
+                                                name="finalizada"
                                                 onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
-                                        </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>cantidad</ControlLabel>
-                                            <FormControl
-                                                type="text"
-                                                value={this.state.cantidad}
-                                                name="cantidad"
-                                                onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
-                                        </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>precio</ControlLabel>
-                                            <FormControl
-                                                type="number"
-                                                value={this.state.precio}
-                                                name="precio"
-                                                onChange={this.handleChange}
-                                            />
+                                            >
+                                                ¿Finalizada? {this.state.finalizada ? "SI" : "NO"}
+                                            </Checkbox>
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
-                                                    onClick={(e) => this.props.history.push('/catalogo/reserva/list')}><i
+                                                    onClick={(e) => this.props.history.push('/catalogo/reservas/list')}><i
                                                 className="fa fa-undo"/> Cancelar</Button>
                                             {'  '}
                                             <Button type="submit" bsStyle="primary" onClick={this.handleSubmit}><i
@@ -136,22 +144,30 @@ class Formm extends Component {
 }
 
 Form.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    cliente_list: PropTypes.array,
+    mesa_list: PropTypes.array
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.reserva.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.reserva.list.find(item => item.id + '' === props.match.params.id + ''),
+            cliente_list: state.cliente.list,
+            mesa_list: state.mesa.list
         }
     }
     return {
-        data: null
+        data: null,
+        cliente_list: state.cliente.list,
+        mesa_list: state.mesa.list
     }
 
 }
 export default connect(mapStateToProps, {
     save,
     getById,
-    update
+    update,
+    getMesaList,
+    getClienteList,
 })(Formm)

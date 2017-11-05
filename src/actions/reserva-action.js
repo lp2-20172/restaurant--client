@@ -1,5 +1,5 @@
 import client from './'
-const url = '/api-catalogo/reserva/'
+const url = '/api-catalogo/reservas/'
 
 export const RESERVA_LIST_REQUEST = "RESERVA_LIST_REQUEST"
 export const RESERVA_LIST_SUCCESS = 'RESERVA_LIST_SUCCESS'
@@ -59,7 +59,7 @@ export function save(data, history) {
                     "type": RESERVA_ADD,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/productos/list')
+                history.push('/catalogo/reservas/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -74,7 +74,7 @@ export function getById(id) {
             .then((r) => {
                 /*
                 dispatch({
-                    "type": PRODUCTO_FETCH,
+                    "type": RESERVA_FETCH,
                     "data": r.data
                 })
                 */
@@ -95,7 +95,7 @@ export function update(data, history) {
                     "type": RESERVA_UPDATE,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/productos/list')
+                history.push('/catalogo/reservas/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -113,7 +113,7 @@ export function del(_id, history) {
                     "type": RESERVA_DELETE,
                     "data": _id
                 })
-                //history.push('/catalogo/productos')
+                //history.push('/catalogo/reservas')
             })
             .catch((error) => {
                 console.log(error)

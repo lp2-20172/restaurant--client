@@ -1,5 +1,5 @@
 import client from './'
-const url = '/api-catalogo/mesa/'
+const url = '/api-catalogo/mesas/'
 
 export const MESA_LIST_REQUEST = "MESA_LIST_REQUEST"
 export const MESA_LIST_SUCCESS = 'MESA_LIST_SUCCESS'
