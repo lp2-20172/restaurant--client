@@ -17,7 +17,6 @@ import PedidoForm from './catalogo/pedido/Form'
 import Login from './Login'
 
 
-
 const routese = [
     {
         path: '/login',
@@ -62,7 +61,7 @@ const routes = [
                 icon: 'send',
                 component: CategoriaForm,
                 novisible: true
-            },{
+            }, {
                 path: '/catalogo/productos/list',
                 exact: true,
                 title: 'Productos',
@@ -153,6 +152,7 @@ const routes = [
                 title: 'reserva Edit',
                 icon: 'send',
                 component: ReservaForm,
+                novisible: true
             },
             {
                 path: '/catalogo/pedido/list',
