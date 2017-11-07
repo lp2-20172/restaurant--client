@@ -5,14 +5,14 @@ import ProductoList from './catalogo/producto/List'
 import ProductoForm from './catalogo/producto/Form'
 import ClienteList from './catalogo/cliente/List'
 import ClienteForm from './catalogo/cliente/Form'
-
 import MesaList from './catalogo/mesa/List'
 import MesaForm from './catalogo/mesa/Form'
 import ReservaList from './catalogo/reserva/List'
 import ReservaForm from './catalogo/reserva/Form'
-
 import PedidoList from './catalogo/pedido/List'
 import PedidoForm from './catalogo/pedido/Form'
+import MenuList from './catalogo/menu/List'
+import MenuForm from './catalogo/menu/Form'
 
 import Login from './Login'
 
@@ -175,6 +175,29 @@ const routes = [
                 title: 'pedido Edit',
                 icon: 'send',
                 component: PedidoForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/menu/list',
+                exact: true,
+                title: 'menu',
+                icon: 'fa fa-list fa-fw',
+                component: MenuList
+            },
+            {
+                path: '/catalogo/menu/new',
+                exact: true,
+                title: 'menu New',
+                icon: 'send',
+                component: MenuForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/menu/edit/:id',
+                exact: true,
+                title: 'menu Edit',
+                icon: 'send',
+                component: MenuForm,
                 novisible: true
             },
         ]

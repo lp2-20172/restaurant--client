@@ -7,6 +7,8 @@ import cliente from './cliente-reducer'
 import mesa from './mesa-reducer'
 import reserva from './reserva-reducer'
 import pedido from './pedido-reducer'
+import menu from './menu-reducer'
+
 
 //import ecomm from './ecommReducer'
 import themeReducer from './appLayoutReducer'
@@ -22,6 +24,7 @@ var reducers = combineReducers({
     mesa: mesa,
     reserva: reserva,
     pedido: pedido,
+    menu: menu,
 
     //  ecomm: ecomm,
     theme: themeReducer,
