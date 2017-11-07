@@ -59,7 +59,7 @@ export function save(data, history) {
                     "type": MENU_ADD,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/menu/list')
+                history.push('/catalogo/menus/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -74,7 +74,7 @@ export function getById(id) {
             .then((r) => {
                 /*
                 dispatch({
-                    "type": PRODUCTO_FETCH,
+                    "type": MENU_FETCH,
                     "data": r.data
                 })
                 */
@@ -95,7 +95,7 @@ export function update(data, history) {
                     "type": MENU_UPDATE,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/menu/list')
+                history.push('/catalogo/menus/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -113,7 +113,7 @@ export function del(_id, history) {
                     "type": MENU_DELETE,
                     "data": _id
                 })
-                //history.push('/catalogo/productos')
+                //history.push('/catalogo/menus')
             })
             .catch((error) => {
                 console.log(error)

@@ -14,8 +14,8 @@ class Formm extends Component {
             id: props.data ? props.data.id : null,
             mesa: props.data ? props.data.mesa : '',
             cliente: props.data ? props.data.cliente : '',
-            finalizada: props.data ? props.data.finalizada : '',
-            fecha: props.data ? props.data.fecha : ''
+            finalizada: props.data ? props.data.finalizada : false,
+            fecha: props.data ? props.data.fecha : Date.now() 
         }
     }
 
@@ -80,9 +80,11 @@ class Formm extends Component {
                                                 componentClass="select"
                                                 placeholder="Seleccione una Mesa"
                                                 value={this.state.mesa}
+                                                required="required"
                                                 name="mesa"
                                                 onChange={this.handleChange}
                                             >
+                                                <option value="" disabled>Seleccione una opcion...</option>
                                                 {mesa_list.map((d, index) =>
                                                     <option key={index} value={d.id}>Piso {d.piso} - #{d.numMesa}
                                                         [Libre? {d.libre ? "Si" : "No"}]</option>
@@ -95,6 +97,7 @@ class Formm extends Component {
                                                 type="text"
                                                 value={this.state.fecha}
                                                 name="fecha"
+                                                required="required"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
@@ -106,8 +109,10 @@ class Formm extends Component {
                                                 placeholder="Seleccione un cliente"
                                                 value={this.state.cliente}
                                                 name="cliente"
+                                                required="required"
                                                 onChange={this.handleChange}
                                             >
+                                                <option value="" disabled>Seleccione una opcion...</option>
                                                 {cliente_list.map((d, index) =>
                                                     <option key={index}
                                                             value={d.id}>{d.nombre} {d.apePaterno} {d.apeMaterno}</option>

@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import {del, getList} from '../../../actions/cliente-action'
+import {del, getList} from '../../../actions/menu-action'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/lib/Button';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
 import Table from  'react-bootstrap/lib/Table'
+import Image from  'react-bootstrap/lib/Image'
 
 
 class List extends Component {
@@ -44,8 +45,9 @@ class List extends Component {
                             <thead>
                             <tr>
                                 <th className="text-center">#</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
+                                <th className="text-center">Nombre</th>
+                                <th className="text-center">Precio</th>
+                                <th className="text-center">Plato</th>
                                 <th className="text-center">Opciones</th>
                             </tr>
                             </thead>
@@ -55,6 +57,9 @@ class List extends Component {
                                     <td className="text-center">{index + 1} </td>
                                     <td>{d.nombre} </td>
                                     <td>{d.precio}</td>
+                                    <td className="text-center">
+                                        <Image src={d.foto} responsive style={{ width: 'auto', height: 100 }}/>
+                                    </td>
                                     <td className="text-center">
                                         <Link to={`/catalogo/menus/edit/${d.id}`}  className="btn btn-info btn-sm"
                                               role="button"><i className="fa fa-edit"/></Link> {" "}
