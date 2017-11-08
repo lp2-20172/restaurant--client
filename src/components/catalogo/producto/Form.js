@@ -11,7 +11,11 @@ class Formm extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            nombre: props.data ? props.data.nombre : '',
+            tipoProducto: props.data ? props.data.tipoProducto : '',
+            uniMedida: props.data ? props.data.uniMedida : '',
+            cantidad: props.data ? props.data.cantidad : '',
+            precio: props.data ? props.data.precio : '',
         }
     }
 
@@ -80,8 +84,8 @@ class Formm extends Component {
                                             <ControlLabel>tipoProducto</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.tipoProducto}
                                                 name="tipoProducto"
+                                                value={this.state.tipoProducto}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>

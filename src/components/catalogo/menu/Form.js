@@ -11,10 +11,8 @@ class Formm extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             nombre: props.data ? props.data.nombre : '',
-            apePaterno: props.data ? props.data.apePaterno : '',
-            apeMaterno: props.data ? props.data.apeMaterno : '',
-            email: props.data ? props.data.email : '',
-            telefono: props.data ? props.data.telefono : ''
+            precio: props.data ? props.data.precio : '',
+            imagen: props.data ? props.data.imagen : '',
         }
     }
 
@@ -62,7 +60,7 @@ class Formm extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <PageHeader>{this.state.id ? "Editar" : "Nuevo"} Cliente</PageHeader>
+                        <PageHeader>{this.state.id ? "Editar" : "Nuevo"} Menu</PageHeader>
                     </div>
                 </div>
                 <div className="row">
@@ -71,8 +69,40 @@ class Formm extends Component {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <Form>
-                                        
+                                    <FormGroup controlId="formBasicText2">
+                                            <ControlLabel>Nombre</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                placeholder="Enter Text"
+                                                name="nombre"
+                                                value={this.state.nombre}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
+                                        <FormGroup controlId="formBasicText2">
+                                            <ControlLabel>Precio</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                placeholder="Enter Text"
+                                                name="precio"
+                                                value={this.state.precio}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
 
+                                        <FormGroup controlId="formBasicText2">
+                                            <ControlLabel> Plato </ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                placeholder="Enter Text"
+                                                name="imagen"
+                                                value={this.state.imagen}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
 
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
