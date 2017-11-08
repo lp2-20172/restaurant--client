@@ -10,8 +10,11 @@ class Formm extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            nombre: props.data ? props.data.nombre : '',
+            apePaterno: props.data ? props.data.apePaterno : '',
+            apeMaterno: props.data ? props.data.apeMaterno : '',
+            email: props.data ? props.data.email : '',
+            telefono: props.data ? props.data.telefono : ''
         }
     }
 
@@ -24,8 +27,11 @@ class Formm extends Component {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    codigo: data.codigo,
-                    nombre: data.nombre
+                    nombre: data.nombre,
+                    apePaterno: data.apePaterno,
+                    apeMaterno: data.apeMaterno,
+                    email: data.email,
+                    telefono: data.telefono
                 });
             });
         }
@@ -56,7 +62,7 @@ class Formm extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <PageHeader>{this.state.id ? "Editar" : "Nuevo"} Categoria</PageHeader>
+                        <PageHeader>{this.state.id ? "Editar" : "Nuevo"} Cliente</PageHeader>
                     </div>
                 </div>
                 <div className="row">
@@ -66,30 +72,68 @@ class Formm extends Component {
                                 <div className="col-lg-12">
                                     <Form>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>Codigo</ControlLabel>
+                                            <ControlLabel>Nombre</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.codigo}
-                                                name="codigo"
+                                                value={this.state.nombre}
+                                                name="nombre"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
 
                                         <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Nombre</ControlLabel>
+                                            <ControlLabel>Apellido Paterno</ControlLabel>
                                             <FormControl
                                                 type="text"
                                                 placeholder="Enter Text"
-                                                name="nombre"
-                                                value={this.state.nombre}
+                                                name="apePaterno"
+                                                value={this.state.apePaterno}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
+
+                                        <FormGroup controlId="formBasicText2">
+                                            <ControlLabel>Apellido Materno</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                placeholder="Enter Text"
+                                                name="apeMaterno"
+                                                value={this.state.apeMaterno}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
+
+                                        <FormGroup controlId="formBasicText2">
+                                            <ControlLabel>Email</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                placeholder="@gmail.com"
+                                                name="email"
+                                                value={this.state.email}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
+
+                                        <FormGroup controlId="formBasicText2">
+                                            <ControlLabel>Telefono</ControlLabel>
+                                            <FormControl
+                                                type="text"
+                                                placeholder=""
+                                                name="telefono"
+                                                value={this.state.telefono}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
+
+
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
-                                                    onClick={(e) => this.props.history.push('/catalogo/categorias/list')}><i
+                                                    onClick={(e) => this.props.history.push('/catalogo/clientes/list')}><i
                                                 className="fa fa-undo"/> Cancelar</Button>
                                             {'  '}
                                             <Button type="submit" bsStyle="primary" onClick={this.handleSubmit}><i

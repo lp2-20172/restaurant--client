@@ -42,7 +42,7 @@ class List extends Component {
                 <div className="col-lg-12">
                     <div className="table-responsive">
                         <Table striped bordered condensed hover>
-                            <thead>
+                            <thead>s
                             <tr>
                                 <th className="text-center">#</th>
                                 <th className="text-center">Nombre</th>
