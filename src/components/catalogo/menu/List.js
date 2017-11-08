@@ -42,8 +42,9 @@ class List extends Component {
                 <div className="col-lg-12">
                     <div className="table-responsive">
                         <Table striped bordered condensed hover>
-                            <thead>s
+                            <thead>
                             <tr>
+
                                 <th className="text-center">#</th>
                                 <th className="text-center">Nombre</th>
                                 <th className="text-center">Precio</th>
@@ -57,6 +58,7 @@ class List extends Component {
                                     <td className="text-center">{index + 1} </td>
                                     <td>{d.nombre} </td>
                                     <td>{d.precio}</td>
+                                    <td>{d.imagen}</td>
                                     <td className="text-center">
                                         <Image src={d.foto} responsive style={{ width: 'auto', height: 100 }}/>
                                     </td>
