@@ -12,7 +12,7 @@ class Formm extends Component {
             id: props.data ? props.data.id : null,
             nombre: props.data ? props.data.nombre : '',
             precio: props.data ? props.data.precio : '',
-            imagen: props.data ? props.data.imagen : '',
+            foto: props.data ? props.data.foto : '',
         }
     }
 
@@ -26,10 +26,8 @@ class Formm extends Component {
                 this.setState({
                     id: data.id,
                     nombre: data.nombre,
-                    apePaterno: data.apePaterno,
-                    apeMaterno: data.apeMaterno,
-                    email: data.email,
-                    telefono: data.telefono
+                    precio: data.precio,
+                    foto: data.foto,
                 });
             });
         }
@@ -97,8 +95,8 @@ class Formm extends Component {
                                             <FormControl
                                                 type="text"
                                                 placeholder="Enter Text"
-                                                name="imagen"
-                                                value={this.state.imagen}
+                                                name="foto"
+                                                value={this.state.foto}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
@@ -106,7 +104,7 @@ class Formm extends Component {
 
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
-                                                    onClick={(e) => this.props.history.push('/catalogo/clientes/list')}><i
+                                                    onClick={(e) => this.props.history.push('/catalogo/menu/list')}><i
                                                 className="fa fa-undo"/> Cancelar</Button>
                                             {'  '}
                                             <Button type="submit" bsStyle="primary" onClick={this.handleSubmit}><i

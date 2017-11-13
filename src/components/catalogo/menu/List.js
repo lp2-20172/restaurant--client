@@ -58,10 +58,7 @@ class List extends Component {
                                     <td className="text-center">{index + 1} </td>
                                     <td>{d.nombre} </td>
                                     <td>{d.precio}</td>
-                                    <td>{d.imagen}</td>
-                                    <td className="text-center">
-                                        <Image src={d.foto} responsive style={{ width: 'auto', height: 100 }}/>
-                                    </td>
+                                    <td className="text-center"><Image src={d.foto} responsive style={{ width: 'auto', height: 100 }}/></td>
                                     <td className="text-center">
                                         <Link to={`/catalogo/menu/edit/${d.id}`}  className="btn btn-info btn-sm"
                                               role="button"><i className="fa fa-edit"/></Link> {" "}
