@@ -3,6 +3,7 @@ import PageHeader from 'react-bootstrap/lib/PageHeader';
 import {RouteWithSubRoutes} from '../utils/Routes'
 import StatWidget from '../utils/Widget'
 
+
 const Content = ({routes}) => (
     <div>
         {routes.map((route, i) => (
@@ -29,7 +30,7 @@ class Home extends React.Component {
                             count="26"
                             headerText="dewdewdewdwe!"
                             footerText="View Details"
-                            linkTo="/"
+                            linkTo=""
                         />
                     </div>
                     <div className="col-lg-3 col-md-6">

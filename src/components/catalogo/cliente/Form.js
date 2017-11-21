@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {Button, ControlLabel, Form, FormControl, FormGroup, PageHeader, Panel} from 'react-bootstrap';
 import FormControlFeedback from 'react-bootstrap/lib/FormControlFeedback';
-import {getById, save, update} from '../../../actions/categoria-action'
+import {getById, save, update} from '../../../actions/cliente-action'
 import {connect} from 'react-redux'
 
 class Formm extends Component {

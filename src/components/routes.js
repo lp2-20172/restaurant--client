@@ -1,6 +1,4 @@
 import {Content, Home} from './app/AppContent'
-import CategoriaList from './catalogo/categorias/List'
-import CategoriaForm from './catalogo/categorias/Form'
 import ProductoList from './catalogo/producto/List'
 import ProductoForm from './catalogo/producto/Form'
 import ClienteList from './catalogo/cliente/List'
@@ -39,29 +37,7 @@ const routes = [
         icon: 'fa fa-bar-chart-o fa-fw',
         component: Content,
         routes: [
-            {
-                path: '/catalogo/categorias/list',
-                exact: true,
-                title: 'Categorias',
-                icon: 'fa fa-list fa-fw',
-                component: CategoriaList
-            },
-            {
-                path: '/catalogo/categorias/new',
-                exact: true,
-                title: 'Categoria New',
-                icon: 'send',
-                component: CategoriaForm,
-                novisible: true
-            },
-            {
-                path: '/catalogo/categorias/edit/:id',
-                exact: true,
-                title: 'Categoria Edit',
-                icon: 'send',
-                component: CategoriaForm,
-                novisible: true
-            }, {
+             {
                 path: '/catalogo/productos/list',
                 exact: true,
                 title: 'Productos',
