@@ -44,14 +44,12 @@ class List extends Component {
                             <thead>
                             <tr>
                                 <th className="text-center">#</th>
-                                <th>Nombre</th>
-                                <th>Pagado </th>
-                                <th>Menu</th>
                                 <th>Confirmado</th>
-                                <th>Mesa</th>
-                                <th>Servido</th>
+                                <th>Servido </th>
                                 <th>Fecha</th>
+                                <th>Menu</th>
                                 <th>Cliente</th>
+                                <th>Mesa</th>
                                 <th className="text-center">Opciones</th>
                             </tr>
                             </thead>
@@ -59,11 +57,12 @@ class List extends Component {
                             {list.map((d, index) =>
                                 <tr key={index}>
                                     <td className="text-center">{index + 1} </td>
-                                    <td>{d.nombre} </td>
-                                    <td>{d.tipoPedido}</td>
-                                    <td>{d.uniMedida}</td>
-                                    <td>{d.cantidad}</td>
-                                    <td>{d.precio}</td>
+                                    <td>{d.confirmado} </td>
+                                    <td>{d.servido}</td>
+                                    <td>{d.fecha}</td>
+                                    <td>{d.menu}</td>
+                                    <td>{d.cliente}</td>
+                                    <td>{d.mesa}</td>
                                     <td className="text-center">
                                         <Link to={`/catalogo/pedido/edit/${d.id}`}  className="btn btn-info btn-sm"
                                               role="button"><i className="fa fa-edit"/></Link> {" "}

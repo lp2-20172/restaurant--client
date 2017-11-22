@@ -93,7 +93,7 @@ class Formm extends Component {
                                         <FormGroup controlId="formBasicText2">
                                             <ControlLabel> Plato </ControlLabel>
                                             <FormControl
-                                                type="text"
+                                                type="file"
                                                 placeholder="Enter Text"
                                                 name="foto"
                                                 value={this.state.foto}
@@ -101,6 +101,7 @@ class Formm extends Component {
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
+                                        
 
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"

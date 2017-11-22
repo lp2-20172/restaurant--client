@@ -1,5 +1,5 @@
 import client from './'
-const url = '/api-catalogo/pedido/'
+const url = '/api-catalogo/pedidos/'
 
 export const PEDIDO_LIST_REQUEST = "PEDIDO_LIST_REQUEST"
 export const PEDIDO_LIST_SUCCESS = 'PEDIDO_LIST_SUCCESS'

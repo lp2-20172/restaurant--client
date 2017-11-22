@@ -10,8 +10,11 @@ class Formm extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            confirmado: props.data ? props.data.confirmado : '',
+            servido: props.data ? props.data.servido : '',
+            fecha: props.data ? props.data.fecha : '',
+            menu: props.data ? props.data.menu : '',
+            precio: props.data ? props.data.precio : '',
         }
     }
 
@@ -66,59 +69,69 @@ class Formm extends Component {
                                 <div className="col-lg-12">
                                     <Form>
                                         <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Nombre</ControlLabel>
+                                            <ControlLabel>Confirmado</ControlLabel>
                                             <FormControl
                                                 type="text"
                                                 placeholder="Enter Text"
-                                                name="nombre"
-                                                value={this.state.nombre}
+                                                name="confirmado"
+                                                value={this.state.confirmado}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>tipoPedido</ControlLabel>
+                                            <ControlLabel>Servido</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.tipoPedido}
-                                                name="tipoPedido"
+                                                name="servido"
+                                                value={this.state.servido}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>uniMedida</ControlLabel>
+                                            <ControlLabel>Fecha</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.uniMedida}
-                                                name="uniMedida"
+                                                value={this.state.fecha}
+                                                name="fecha"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>cantidad</ControlLabel>
+                                            <ControlLabel>Menu</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.cantidad}
-                                                name="cantidad"
+                                                value={this.state.menu}
+                                                name="menu"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>precio</ControlLabel>
+                                            <ControlLabel>Cliente</ControlLabel>
                                             <FormControl
                                                 type="number"
-                                                value={this.state.precio}
-                                                name="precio"
+                                                value={this.state.cliente}
+                                                name="cliente"
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControlFeedback/>
+                                        </FormGroup>
+                                        <FormGroup controlId="formBasicText">
+                                            <ControlLabel>Mesa</ControlLabel>
+                                            <FormControl
+                                                type="number"
+                                                value={this.state.mesa}
+                                                name="mesa"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
-                                                    onClick={(e) => this.props.history.push('/catalogo/pedido/list')}><i
+                                                    onClick={(e) => this.props.history.push('/catalogo/productos/list')}><i
                                                 className="fa fa-undo"/> Cancelar</Button>
                                             {'  '}
                                             <Button type="submit" bsStyle="primary" onClick={this.handleSubmit}><i
