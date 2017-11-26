@@ -143,5 +143,5 @@ export default connect(mapStateToProps, {
     update,
     getMesaList,
     getClienteList,
-    getPedido3List
+    getPedidoList
 })(Formm)
