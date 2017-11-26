@@ -7,6 +7,7 @@ import mesa from './mesa-reducer'
 import reserva from './reserva-reducer'
 import pedido from './pedido-reducer'
 import menu from './menu-reducer'
+import venta from './venta-reducer'
 
 
 //import ecomm from './ecommReducer'
@@ -23,6 +24,7 @@ var reducers = combineReducers({
     reserva: reserva,
     pedido: pedido,
     menu: menu,
+    venta: venta,
 
     //  ecomm: ecomm,
     theme: themeReducer,
