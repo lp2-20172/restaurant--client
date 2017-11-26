@@ -11,6 +11,8 @@ import PedidoList from './catalogo/pedido/List'
 import PedidoForm from './catalogo/pedido/Form'
 import MenuList from './catalogo/menu/List'
 import MenuForm from './catalogo/menu/Form'
+import VentaList from './catalogo/venta/List'
+import VentaForm from './catalogo/venta/Form'
 
 import Login from './Login'
 
@@ -174,6 +176,29 @@ const routes = [
                 title: 'menu Edit',
                 icon: 'send',
                 component: MenuForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/venta/list',
+                exact: true,
+                title: 'venta',
+                icon: 'fa fa-list fa-fw',
+                component: VentaList
+            },
+            {
+                path: '/catalogo/venta/new',
+                exact: true,
+                title: 'venta New',
+                icon: 'send',
+                component: VentaForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/venta/edit/:id',
+                exact: true,
+                title: 'venta Edit',
+                icon: 'send',
+                component: VentaForm,
                 novisible: true
             },
         ]
