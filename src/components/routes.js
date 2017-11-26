@@ -1,6 +1,4 @@
 import {Content, Home} from './app/AppContent'
-import CategoriaList from './catalogo/categorias/List'
-import CategoriaForm from './catalogo/categorias/Form'
 import ProductoList from './catalogo/producto/List'
 import ProductoForm from './catalogo/producto/Form'
 import ClienteList from './catalogo/cliente/List'
@@ -39,33 +37,12 @@ const routes = [
         icon: 'fa fa-bar-chart-o fa-fw',
         component: Content,
         routes: [
+            
             {
-                path: '/catalogo/categorias/list',
-                exact: true,
-                title: 'Categorias',
-                icon: 'fa fa-list fa-fw',
-                component: CategoriaList
-            },
-            {
-                path: '/catalogo/categorias/new',
-                exact: true,
-                title: 'Categoria New',
-                icon: 'send',
-                component: CategoriaForm,
-                novisible: true
-            },
-            {
-                path: '/catalogo/categorias/edit/:id',
-                exact: true,
-                title: 'Categoria Edit',
-                icon: 'send',
-                component: CategoriaForm,
-                novisible: true
-            }, {
                 path: '/catalogo/productos/list',
                 exact: true,
-                title: 'Productos',
-                icon: 'fa fa-list fa-fw',
+                title: 'productos',
+                icon: 'fa fa-tree',
                 component: ProductoList
             },
             {
@@ -88,7 +65,7 @@ const routes = [
                 path: '/catalogo/clientes/list',
                 exact: true,
                 title: 'clientes',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ClienteList
             },
             {
@@ -112,7 +89,7 @@ const routes = [
                 path: '/catalogo/mesa/list',
                 exact: true,
                 title: 'mesa',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: MesaList
             },
             {
@@ -135,7 +112,7 @@ const routes = [
                 path: '/catalogo/reservas/list',
                 exact: true,
                 title: 'reserva',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ReservaList
             },
             {
@@ -158,7 +135,7 @@ const routes = [
                 path: '/catalogo/pedido/list',
                 exact: true,
                 title: 'pedido',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: PedidoList
             },
             {
@@ -181,7 +158,7 @@ const routes = [
                 path: '/catalogo/menu/list',
                 exact: true,
                 title: 'menu',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: MenuList
             },
             {
