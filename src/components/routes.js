@@ -37,18 +37,13 @@ const routes = [
         icon: 'fa fa-bar-chart-o fa-fw',
         component: Content,
         routes: [
-<<<<<<< HEAD
-            
-            {
-=======
              {
->>>>>>> cc8238ede7626f91c4ad30880f33cbadcfd88bb6
                 path: '/catalogo/productos/list',
                 exact: true,
                 title: 'productos',
                 icon: 'fa fa-tree',
                 component: ProductoList
-            },
+           },
             {
                 path: '/catalogo/productos/new',
                 exact: true,
