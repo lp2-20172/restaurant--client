@@ -5,13 +5,16 @@ import FormControlFeedback from 'react-bootstrap/lib/FormControlFeedback';
 import {getById, save, update} from '../../../actions/mesa-action'
 import {connect} from 'react-redux'
 
-class Formm extends Component {
+class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
             codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            piso: props.data ? props.data.piso : '',
+            maxPersonas: props.data ? props.data.maxPersonas : '',
+            numMesa: props.data ? props.data.numMesa : '',
+            libre: props.data ? props.data.libre : '',
         }
     }
 
@@ -66,63 +69,54 @@ class Formm extends Component {
                                 <div className="col-lg-12">
                                     <Form>
                                         <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Nombre</ControlLabel>
+                                            <ControlLabel>Piso</ControlLabel>
                                             <FormControl
                                                 type="text"
                                                 placeholder="Enter Text"
-                                                name="nombre"
-                                                value={this.state.nombre}
+                                                name="piso"
+                                                value={this.state.piso}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>tipoMesa</ControlLabel>
+                                            <ControlLabel>maxPersonas</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.tipoMesa}
-                                                name="tipoMesa"
+                                                value={this.state.maxPersonas}
+                                                name="maxPersonas"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>uniMedida</ControlLabel>
+                                            <ControlLabel>numMesa</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.uniMedida}
-                                                name="uniMedida"
+                                                value={this.state.numMesa}
+                                                name="numMesa"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
-                                            <ControlLabel>cantidad</ControlLabel>
+                                            <ControlLabel>libre</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.cantidad}
-                                                name="cantidad"
+                                                value={this.state.libre}
+                                                name="libre"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>precio</ControlLabel>
-                                            <FormControl
-                                                type="number"
-                                                value={this.state.precio}
-                                                name="precio"
-                                                onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
-                                        </FormGroup>
+                                        
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
                                                     onClick={(e) => this.props.history.push('/catalogo/mesa/list')}><i
-                                                className="fa fa-undo"/> Cancelar</Button>
+                                                className="fa fa-undo"/>Cancelar</Button>
                                             {'  '}
                                             <Button type="submit" bsStyle="primary" onClick={this.handleSubmit}><i
-                                                className="fa fa-save"/> Guardar</Button>
+                                                className="fa fa-save"/>Guardar</Button>
                                         </FormGroup>
                                     </Form>
                                 </div>
