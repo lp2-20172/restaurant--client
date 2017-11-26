@@ -34,7 +34,7 @@ class List extends Component {
         return (
             <div>
                 <div className="col-lg-12">
-                    <PageHeader>Lista de Clientes
+                    <PageHeader>Lista de clientes
                         <Button bsStyle="success" onClick={this.handleClick}><i className="fa fa-plus"/></Button>
                     </PageHeader>
                 </div>
@@ -45,10 +45,10 @@ class List extends Component {
                             <tr>
                                 <th className="text-center">#</th>
                                 <th>Nombre</th>
-                                <th>Apellido Paterno</th>
-                                <th>Apellido Materno</th>
-                                <th>Email</th>
-                                <th>Telefono</th>
+                                <th>Ape Paterno</th>
+                                <th>Ape Materno</th>
+                                <th>email</th>
+                                <th>telefono</th>
                                 <th className="text-center">Opciones</th>
                             </tr>
                             </thead>

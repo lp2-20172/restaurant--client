@@ -10,11 +10,12 @@ class Formm extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
+            codigo: props.data ? props.data.codigo : '',
             nombre: props.data ? props.data.nombre : '',
             apePaterno: props.data ? props.data.apePaterno : '',
             apeMaterno: props.data ? props.data.apeMaterno : '',
             email: props.data ? props.data.email : '',
-            telefono: props.data ? props.data.telefono : ''
+            telefono: props.data ? props.data.telefono : '',
         }
     }
 
@@ -27,11 +28,8 @@ class Formm extends Component {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    nombre: data.nombre,
-                    apePaterno: data.apePaterno,
-                    apeMaterno: data.apeMaterno,
-                    email: data.email,
-                    telefono: data.telefono
+                    codigo: data.codigo,
+                    nombre: data.nombre
                 });
             });
         }
@@ -62,7 +60,7 @@ class Formm extends Component {
             <div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <PageHeader>{this.state.id ? "Editar" : "Nuevo"} Cliente</PageHeader>
+                        <PageHeader>{this.state.id ? "Editar" : "Nuevo"} cliente</PageHeader>
                     </div>
                 </div>
                 <div className="row">
@@ -71,66 +69,57 @@ class Formm extends Component {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <Form>
-                                        <FormGroup controlId="formBasicText">
+                                        <FormGroup controlId="formBasicText2">
                                             <ControlLabel>Nombre</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.nombre}
+                                                placeholder="Enter Text"
                                                 name="nombre"
+                                                value={this.state.nombre}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-
-                                        <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Apellido Paterno</ControlLabel>
+                                        <FormGroup controlId="formBasicText">
+                                            <ControlLabel>apePaterno</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                placeholder="Enter Text"
-                                                name="apePaterno"
                                                 value={this.state.apePaterno}
+                                                name="apePaterno"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-
-                                        <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Apellido Materno</ControlLabel>
+                                        <FormGroup controlId="formBasicText">
+                                            <ControlLabel>apeMaterno</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                placeholder="Enter Text"
-                                                name="apeMaterno"
                                                 value={this.state.apeMaterno}
+                                                name="apeMaterno"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-
-                                        <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Email</ControlLabel>
+                                        <FormGroup controlId="formBasicText">
+                                            <ControlLabel>email</ControlLabel>
                                             <FormControl
                                                 type="text"
-                                                placeholder="@gmail.com"
-                                                name="email"
                                                 value={this.state.email}
+                                                name="email"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-
-                                        <FormGroup controlId="formBasicText2">
-                                            <ControlLabel>Telefono</ControlLabel>
+                                        <FormGroup controlId="formBasicText">
+                                            <ControlLabel>telefono</ControlLabel>
                                             <FormControl
-                                                type="text"
-                                                placeholder=""
-                                                name="telefono"
+                                                type="number"
                                                 value={this.state.telefono}
+                                                name="telefono"
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-
-
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
                                                     onClick={(e) => this.props.history.push('/catalogo/clientes/list')}><i
@@ -157,7 +146,7 @@ Form.propTypes = {
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.categoria.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.cliente.list.find(item => item.id + '' === props.match.params.id + '')
         }
     }
     return {

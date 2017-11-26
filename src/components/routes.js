@@ -39,11 +39,16 @@ const routes = [
         icon: 'fa fa-bar-chart-o fa-fw',
         component: Content,
         routes: [
+<<<<<<< HEAD
+            
+            {
+=======
              {
+>>>>>>> cc8238ede7626f91c4ad30880f33cbadcfd88bb6
                 path: '/catalogo/productos/list',
                 exact: true,
-                title: 'Productos',
-                icon: 'fa fa-list fa-fw',
+                title: 'productos',
+                icon: 'fa fa-tree',
                 component: ProductoList
             },
             {
@@ -66,7 +71,7 @@ const routes = [
                 path: '/catalogo/clientes/list',
                 exact: true,
                 title: 'clientes',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ClienteList
             },
             {
@@ -90,7 +95,7 @@ const routes = [
                 path: '/catalogo/mesa/list',
                 exact: true,
                 title: 'mesa',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: MesaList
             },
             {
@@ -113,7 +118,7 @@ const routes = [
                 path: '/catalogo/reservas/list',
                 exact: true,
                 title: 'reserva',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ReservaList
             },
             {
@@ -136,7 +141,7 @@ const routes = [
                 path: '/catalogo/pedido/list',
                 exact: true,
                 title: 'pedido',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: PedidoList
             },
             {
@@ -159,7 +164,7 @@ const routes = [
                 path: '/catalogo/menu/list',
                 exact: true,
                 title: 'menu',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: MenuList
             },
             {

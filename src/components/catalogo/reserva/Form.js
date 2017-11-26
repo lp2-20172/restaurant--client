@@ -18,7 +18,6 @@ class Formm extends Component {
             mesa: props.data ? props.data.mesa : '',
             cliente: props.data ? props.data.cliente : '',
             finalizada: props.data ? props.data.finalizada : false,
-            fecha: props.data ? props.data.fecha : ""
         }
     }
 
