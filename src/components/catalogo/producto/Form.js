@@ -79,6 +79,7 @@ class Formm extends Component {
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
+
                                         </FormGroup>
                                         <FormGroup controlId="formBasicText">
                                             <ControlLabel>tipoProducto</ControlLabel>
@@ -86,10 +87,10 @@ class Formm extends Component {
                                                 type="text"
                                                 name="tipoProducto"
                                                 value={this.state.tipoProducto}
-                                                onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
+                                                onChange={this.handleChange} />
+                                            <FormControlFeedback/> 
                                         </FormGroup>
+
                                         <FormGroup controlId="formBasicText">
                                             <ControlLabel>uniMedida</ControlLabel>
                                             <FormControl

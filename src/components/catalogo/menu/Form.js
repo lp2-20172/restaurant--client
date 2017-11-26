@@ -12,7 +12,7 @@ class Formm extends Component {
             id: props.data ? props.data.id : null,
             nombre: props.data ? props.data.nombre : '',
             precio: props.data ? props.data.precio : '',
-            foto: props.data ? props.data.foto : '',
+            imagen: props.data ? props.data.imagen : '',
         }
     }
 
@@ -27,7 +27,7 @@ class Formm extends Component {
                     id: data.id,
                     nombre: data.nombre,
                     precio: data.precio,
-                    foto: data.foto,
+                    imagen: data.imagen,
                 });
             });
         }
@@ -95,8 +95,8 @@ class Formm extends Component {
                                             <FormControl
                                                 type="file"
                                                 placeholder="Enter Text"
-                                                name="foto"
-                                                value={this.state.foto}
+                                                name="imagen"
+                                                value={this.state.imagen}
                                                 onChange={this.handleChange}
                                             />
                                             <FormControlFeedback/>
@@ -129,7 +129,7 @@ Form.propTypes = {
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.categoria.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.menu.list.find(item => item.id + '' === props.match.params.id + '')
         }
     }
     return {
