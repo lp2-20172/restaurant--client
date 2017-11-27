@@ -5,7 +5,7 @@ import FormControlFeedback from 'react-bootstrap/lib/FormControlFeedback';
 import {getById, save, update} from '../../../actions/mesa-action'
 import {connect} from 'react-redux'
 
-class Form extends Component {
+class Formm extends Component {
     constructor(props) {
         super(props);
         this.state = {
