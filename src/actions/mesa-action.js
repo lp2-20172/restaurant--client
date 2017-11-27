@@ -113,7 +113,7 @@ export function del(_id, history) {
                     "type": MESA_DELETE,
                     "data": _id
                 })
-                //history.push('/catalogo/productos')
+                //history.push('/catalogo/mesas')
             })
             .catch((error) => {
                 console.log(error)
