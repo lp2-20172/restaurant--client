@@ -21,8 +21,6 @@ class Formm extends Component {
     }
 
     componentWillMount = () => {
-        this.props.getPedidoList("")
-        this.props.getClienteList("")
     }
 
     /*componentDidMount = () => {

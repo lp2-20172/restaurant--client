@@ -11,6 +11,8 @@ import PedidoList from './catalogo/pedido/List'
 import PedidoForm from './catalogo/pedido/Form'
 import MenuList from './catalogo/menu/List'
 import MenuForm from './catalogo/menu/Form'
+import VentaList from './catalogo/venta/List'
+import VentaForm from './catalogo/venta/Form'
 
 import Login from './Login'
 
@@ -37,13 +39,13 @@ const routes = [
         icon: 'fa fa-bar-chart-o fa-fw',
         component: Content,
         routes: [
-            {
+             {
                 path: '/catalogo/productos/list',
                 exact: true,
-                title: 'Productos',
-                icon: 'fa fa-list fa-fw',
+                title: 'productos',
+                icon: 'fa fa-tree',
                 component: ProductoList
-            },
+           },
             {
                 path: '/catalogo/productos/new',
                 exact: true,
@@ -64,7 +66,7 @@ const routes = [
                 path: '/catalogo/clientes/list',
                 exact: true,
                 title: 'clientes',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ClienteList
             },
             {
@@ -83,8 +85,8 @@ const routes = [
                 component: ClienteForm,
                 novisible: true
             },
+            {
 
-<<<<<<< HEAD
                 path: '/catalogo/mesa/list',
                 exact: true,
                 title: 'mesa',
@@ -100,20 +102,18 @@ const routes = [
                 novisible: true
             },
             {
-                path: '/catalogo/mesas/edit/:id',
+                path: '/catalogo/mesa/edit/:id',
                 exact: true,
                 title: 'mesa Edit',
                 icon: 'send',
                 component: MesaForm,
                 novisible: true
             },
-=======
->>>>>>> 1230931c73a8a8dc7f8fdf0253459141f75cfec9
             {
                 path: '/catalogo/reservas/list',
                 exact: true,
                 title: 'reserva',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ReservaList
             },
             {
@@ -136,7 +136,7 @@ const routes = [
                 path: '/catalogo/pedido/list',
                 exact: true,
                 title: 'pedido',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: PedidoList
             },
             {
@@ -159,7 +159,7 @@ const routes = [
                 path: '/catalogo/menu/list',
                 exact: true,
                 title: 'menu',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: MenuList
             },
             {
@@ -179,33 +179,26 @@ const routes = [
                 novisible: true
             },
             {
-
-                path: '/catalogo/mesa/list',
+                path: '/catalogo/venta/list',
                 exact: true,
-<<<<<<< HEAD
                 title: 'venta',
                 icon: 'fa fa-tree',
                 component: VentaList
-=======
-                title: 'mesa',
-                icon: 'fa fa-list fa-fw',
-                component: MesaList
->>>>>>> 1230931c73a8a8dc7f8fdf0253459141f75cfec9
             },
             {
-                path: '/catalogo/mesa/new',
+                path: '/catalogo/venta/new',
                 exact: true,
-                title: 'mesa New',
+                title: 'venta New',
                 icon: 'send',
-                component: MesaForm,
+                component: VentaForm,
                 novisible: true
             },
             {
-                path: '/catalogo/mesas/edit/:id',
+                path: '/catalogo/venta/edit/:id',
                 exact: true,
-                title: 'mesa Edit',
+                title: 'venta Edit',
                 icon: 'send',
-                component: MesaForm,
+                component: VentaForm,
                 novisible: true
             },
         ]
