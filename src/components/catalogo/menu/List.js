@@ -60,7 +60,7 @@ class List extends Component {
                                     <td>{d.precio}</td>
                                     <td className="text-center"><Image src={d.imagen} responsive style={{ width: 'auto', height: 100 }}/></td>
                                     <td className="text-center">
-                                        <Link to={`/catalogo/menu/edit/${d.id}`}  className="btn btn-info btn-sm"
+                                        <Link to={`/catalogo/menus/edit/${d.id}`}  className="btn btn-info btn-sm"
                                               role="button"><i className="fa fa-edit"/></Link> {" "}
                                         <Button bsSize="small" bsStyle="danger" onClick={() => del(d.id, this.props.history)}><i
                                             className="fa fa-trash"/></Button>
