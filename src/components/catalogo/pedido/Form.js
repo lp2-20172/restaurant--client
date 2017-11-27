@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Button, ControlLabel, Form, FormControl, FormGroup, PageHeader, Panel} from 'react-bootstrap';
 import FormControlFeedback from 'react-bootstrap/lib/FormControlFeedback';
 import {getById, save, update} from '../../../actions/pedido-action'
+import {getList as getClienteList} from '../../../actions/cliente-action'
 import {connect} from 'react-redux'
 
 class Formm extends Component {
@@ -15,13 +16,14 @@ class Formm extends Component {
             fecha: props.data ? props.data.fecha : '',
             menu: props.data ? props.data.menu : '',
             precio: props.data ? props.data.precio : '',
+            cliente: props.data ? props.data.cliente : false,
         }
     }
 
     componentWillMount = () => {
     }
 
-    componentDidMount = () => {
+    /*componentDidMount = () => {
         const {id} = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
@@ -32,7 +34,7 @@ class Formm extends Component {
                 });
             });
         }
-    }
+    }*/
 
     handleChange = (event) => {
         const target = event.target;

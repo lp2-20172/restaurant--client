@@ -11,6 +11,8 @@ import PedidoList from './catalogo/pedido/List'
 import PedidoForm from './catalogo/pedido/Form'
 import MenuList from './catalogo/menu/List'
 import MenuForm from './catalogo/menu/Form'
+import VentaList from './catalogo/venta/List'
+import VentaForm from './catalogo/venta/Form'
 
 import Login from './Login'
 
@@ -37,13 +39,13 @@ const routes = [
         icon: 'fa fa-bar-chart-o fa-fw',
         component: Content,
         routes: [
-            {
+             {
                 path: '/catalogo/productos/list',
                 exact: true,
-                title: 'Productos',
-                icon: 'fa fa-list fa-fw',
+                title: 'productos',
+                icon: 'fa fa-tree',
                 component: ProductoList
-            },
+           },
             {
                 path: '/catalogo/productos/new',
                 exact: true,
@@ -64,7 +66,7 @@ const routes = [
                 path: '/catalogo/clientes/list',
                 exact: true,
                 title: 'clientes',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ClienteList
             },
             {
@@ -83,12 +85,35 @@ const routes = [
                 component: ClienteForm,
                 novisible: true
             },
+            {
 
+                path: '/catalogo/mesa/list',
+                exact: true,
+                title: 'mesa',
+                icon: 'fa fa-tree',
+                component: MesaList
+            },
+            {
+                path: '/catalogo/mesa/new',
+                exact: true,
+                title: 'mesa New',
+                icon: 'send',
+                component: MesaForm,
+                novisible: true
+            },
+            {
+                path: '/catalogo/mesa/edit/:id',
+                exact: true,
+                title: 'mesa Edit',
+                icon: 'send',
+                component: MesaForm,
+                novisible: true
+            },
             {
                 path: '/catalogo/reservas/list',
                 exact: true,
                 title: 'reserva',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: ReservaList
             },
             {
@@ -111,7 +136,7 @@ const routes = [
                 path: '/catalogo/pedido/list',
                 exact: true,
                 title: 'pedido',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: PedidoList
             },
             {
@@ -133,8 +158,13 @@ const routes = [
             {
                 path: '/catalogo/menus/list',
                 exact: true,
+<<<<<<< HEAD
                 title: 'menus',
                 icon: 'fa fa-list fa-fw',
+=======
+                title: 'menu',
+                icon: 'fa fa-tree',
+>>>>>>> 49bb3878cf684fdef22d65dbf705b8425cdf7bdb
                 component: MenuList
             },
             {
@@ -154,27 +184,26 @@ const routes = [
                 novisible: true
             },
             {
-
-                path: '/catalogo/mesa/list',
+                path: '/catalogo/venta/list',
                 exact: true,
-                title: 'mesa',
-                icon: 'fa fa-list fa-fw',
-                component: MesaList
+                title: 'venta',
+                icon: 'fa fa-tree',
+                component: VentaList
             },
             {
-                path: '/catalogo/mesa/new',
+                path: '/catalogo/venta/new',
                 exact: true,
-                title: 'mesa New',
+                title: 'venta New',
                 icon: 'send',
-                component: MesaForm,
+                component: VentaForm,
                 novisible: true
             },
             {
-                path: '/catalogo/mesas/edit/:id',
+                path: '/catalogo/venta/edit/:id',
                 exact: true,
-                title: 'mesa Edit',
+                title: 'venta Edit',
                 icon: 'send',
-                component: MesaForm,
+                component: VentaForm,
                 novisible: true
             },
         ]
