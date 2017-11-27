@@ -102,7 +102,7 @@ const routes = [
                 novisible: true
             },
             {
-                path: '/catalogo/mesa/edit/:id',
+                path: '/catalogo/mesas/edit/:id',
                 exact: true,
                 title: 'mesa Edit',
                 icon: 'send',
@@ -182,7 +182,7 @@ const routes = [
                 path: '/catalogo/venta/list',
                 exact: true,
                 title: 'venta',
-                icon: 'fa fa-list fa-fw',
+                icon: 'fa fa-tree',
                 component: VentaList
             },
             {
