@@ -156,10 +156,15 @@ const routes = [
                 novisible: true
             },
             {
-                path: '/catalogo/menu/list',
+                path: '/catalogo/menus/list',
                 exact: true,
+<<<<<<< HEAD
+                title: 'menus',
+                icon: 'fa fa-list fa-fw',
+=======
                 title: 'menu',
                 icon: 'fa fa-tree',
+>>>>>>> 49bb3878cf684fdef22d65dbf705b8425cdf7bdb
                 component: MenuList
             },
             {
@@ -171,7 +176,7 @@ const routes = [
                 novisible: true
             },
             {
-                path: '/catalogo/menu/edit/:id',
+                path: '/catalogo/menus/edit/:id',
                 exact: true,
                 title: 'menu Edit',
                 icon: 'send',

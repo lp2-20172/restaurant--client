@@ -120,7 +120,7 @@ class Formm extends Component {
 
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
-                                                    onClick={(e) => this.props.history.push('/catalogo/menu/list')}><i
+                                                    onClick={(e) => this.props.history.push('/catalogo/menus/list')}><i
                                                 className="fa fa-undo"/> Cancelar</Button>
                                             {'  '}
                                             <Button type="submit" bsStyle="primary" onClick={this.handleSubmit}><i
