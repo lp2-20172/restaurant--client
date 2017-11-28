@@ -13,6 +13,7 @@ class Formm extends Component {
             nombre: props.data ? props.data.nombre : '',
             precio: props.data ? props.data.precio : '',
             imagen: props.data ? props.data.imagen : '',
+            f: '',
         }
     }
 
@@ -52,6 +53,20 @@ class Formm extends Component {
         }
         event.preventDefault();
     }
+    handleChangefile = (file) => {
+        return this.setState({f: file.target.files[0]});
+        console.log(file.target.files[0])
+    }
+    // function preview_image(event)
+    // {
+    //     var reader = new FileReader();
+    //     reader.onload = function()
+    //     {
+    //         var output = document.getElementById('output_image');
+    //         output.src = reader.result;
+    //     }
+    //     reader.readAsDataURL(event.target.files[0]);
+    // }
 
     render() {
         return (
@@ -66,8 +81,8 @@ class Formm extends Component {
                         <Panel>
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <Form>
-                                    <FormGroup controlId="formBasicText2">
+                                    <Form enctype="multipart/form-data">
+                                        <FormGroup controlId="formBasicText2">
                                             <ControlLabel>Nombre</ControlLabel>
                                             <FormControl
                                                 type="text"
@@ -97,11 +112,11 @@ class Formm extends Component {
                                                 placeholder="Enter Text"
                                                 name="imagen"
                                                 value={this.state.imagen}
-                                                onChange={this.handleChange}
+                                                // onChange={this.handleChangefile}
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-                                        
+
 
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
