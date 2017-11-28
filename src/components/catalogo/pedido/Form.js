@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {Button, ControlLabel, Form, FormControl, FormGroup, PageHeader, Panel} from 'react-bootstrap';
 import FormControlFeedback from 'react-bootstrap/lib/FormControlFeedback';
 import {getById, save, update} from '../../../actions/pedido-action'
+import {getList as getMesaList} from '../../../actions/mesa-action'
 import {getList as getClienteList} from '../../../actions/cliente-action'
+import {getList as getMenuList} from '../../../actions/menu-action'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import Image from 'react-bootstrap/lib/Image'
 
 class Formm extends Component {
     constructor(props) {
@@ -15,12 +18,16 @@ class Formm extends Component {
             servido: props.data ? props.data.servido : '',
             fecha: props.data ? props.data.fecha : '',
             menu: props.data ? props.data.menu : '',
+            mesa: props.data ? props.data.mesa : '',
             precio: props.data ? props.data.precio : '',
             cliente: props.data ? props.data.cliente : false,
         }
     }
 
     componentWillMount = () => {
+        this.props.getMesaList("")
+        this.props.getClienteList("")
+        this.props.getMenuList("")
     }
 
     /*componentDidMount = () => {
@@ -57,6 +64,7 @@ class Formm extends Component {
     }
 
     render() {
+        let {cliente_list, mesa_list, menu_list} = this.props;
         return (
             <div>
                 <div className="row">
@@ -101,35 +109,61 @@ class Formm extends Component {
                                             />
                                             <FormControlFeedback/>
                                         </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>Menu</ControlLabel>
-                                            <FormControl
-                                                type="text"
-                                                value={this.state.menu}
-                                                name="menu"
-                                                onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
-                                        </FormGroup>
-                                        <FormGroup controlId="formBasicText">
-                                            <ControlLabel>Cliente</ControlLabel>
-                                            <FormControl
-                                                type="number"
-                                                value={this.state.cliente}
-                                                name="cliente"
-                                                onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
-                                        </FormGroup>
-                                        <FormGroup controlId="formBasicText">
+                                        <FormGroup className="col-lg-4">
                                             <ControlLabel>Mesa</ControlLabel>
                                             <FormControl
-                                                type="number"
+                                                componentClass="select"
+                                                placeholder="Seleccione una Mesa"
                                                 value={this.state.mesa}
+                                                required="required"
                                                 name="mesa"
                                                 onChange={this.handleChange}
-                                            />
-                                            <FormControlFeedback/>
+                                            >
+                                                <option value="" disabled>Seleccione una opcion...</option>
+                                                {mesa_list.map((d, index) =>
+                                                    <option key={index} value={d.id}>Piso {d.piso} - #{d.numMesa}
+                                                        [Libre? {d.libre ? "Si" : "No"}]</option>
+                                                )}
+                                            </FormControl>
+                                        </FormGroup>
+                                        <FormGroup className="col-lg-4">
+                                            <ControlLabel>Cliente</ControlLabel>
+                                            <FormControl
+                                                componentClass="select"
+                                                placeholder="Seleccione un cliente"
+                                                value={this.state.cliente}
+                                                name="cliente"
+                                                required="required"
+                                                onChange={this.handleChange}
+                                            >
+                                                <option value="" disabled>Seleccione una opcion...</option>
+                                                {cliente_list.map((d, index) =>
+                                                    <option key={index}
+                                                            value={d.id}>{d.nombre} {d.apePaterno} {d.apeMaterno}</option>
+                                                )}
+                                            </FormControl>
+                                        </FormGroup>
+                                        <FormGroup className="col-lg-4">
+                                            <ControlLabel>Menu</ControlLabel>
+                                            <FormControl
+                                                componentClass="select"
+                                                placeholder="Seleccione un menu"
+                                                value={this.state.menu}
+                                                name="menu"
+                                                required="required"
+                                                onChange={this.handleChange}
+                                            >
+                                                <option value="" disabled>Seleccione una opcion...</option>
+                                                {menu_list.map((d, index) =>
+                                                    <option key={index}
+                                                            value={d.id}>{d.nombre} S/. {d.precio} <Image src={d.imagen}
+                                                                                                          responsive
+                                                                                                          style={{
+                                                                                                              width: 'auto',
+                                                                                                              height: 100
+                                                                                                          }}/></option>
+                                                )}
+                                            </FormControl>
                                         </FormGroup>
                                         <FormGroup className="constrols text-right">
                                             <Button type="reset"
@@ -151,22 +185,34 @@ class Formm extends Component {
 }
 
 Form.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    cliente_list: PropTypes.array,
+    mesa_list: PropTypes.array,
+    menu_list: PropTypes.array,
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.pedido.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.pedido.list.find(item => item.id + '' === props.match.params.id + ''),
+            cliente_list: state.cliente.list,
+            mesa_list: state.mesa.list,
+            menu_list: state.menu.list,
         }
     }
     return {
-        data: null
+        data: null,
+        cliente_list: state.cliente.list,
+        mesa_list: state.mesa.list,
+        menu_list: state.menu.list,
     }
 
 }
 export default connect(mapStateToProps, {
     save,
     getById,
-    update
+    update,
+    getMesaList,
+    getClienteList,
+    getMenuList
 })(Formm)

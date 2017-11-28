@@ -7,17 +7,19 @@ import {getList as getMesaList} from '../../../actions/mesa-action'
 import {getList as getClienteList} from '../../../actions/cliente-action'
 import {connect} from 'react-redux'
 import DateTimeField from 'react-bootstrap-datetimepicker'
-import Moment from 'moment'
+import moment from 'moment';
+import 'moment/locale/es';
 
 class Formm extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             id: props.data ? props.data.id : null,
             mesa: props.data ? props.data.mesa : '',
             cliente: props.data ? props.data.cliente : '',
             finalizada: props.data ? props.data.finalizada : false,
+            fecha: props.data ? props.data.fecha : '',
+            f: props.data ? moment(props.data.fecha, 'YYYY-MM-DD hh:mm A') : moment().format('YYYY-MM-DD hh:mm A')
         }
     }
 
@@ -26,7 +28,7 @@ class Formm extends Component {
         this.props.getClienteList("")
     }
 
-    /*componentDidMount = () => {
+    componentDidMount = () => {
         const {id} = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
@@ -36,10 +38,11 @@ class Formm extends Component {
                     cliente: data.cliente,
                     finalizada: data.finalizada,
                     fecha: data.fecha,
+                    f: moment(data.fecha, 'YYYY-MM-DD hh:mm A'),
                 });
             });
         }
-    }*/
+    }
 
     handleChange = (event) => {
         const target = event.target;
@@ -50,12 +53,13 @@ class Formm extends Component {
             [name]: value
         });
     }
-    // handleChangedate = (newDate) => {
-    //     return this.setState({date: newDate});
-    // }
+    handleChangedate = (newDate) => {
+        return this.setState({f: newDate});
+    }
 
     handleSubmit = (event) => {
-        const {id} = this.props.match.params
+        const {id} = this.props.match.params;
+        this.state.fecha = moment(this.state.f)
         if (id) {
             this.props.update(this.state, this.props.history)
         } else {
@@ -97,15 +101,14 @@ class Formm extends Component {
                                             </FormControl>
                                         </FormGroup>
                                         <FormGroup className="col-lg-3">
-                                            <ControlLabel>Fecha{this.state.fecha}</ControlLabel>
-
-                                            {/*<DateTimeField*/}
-                                                {/*dateTime={this.state.fecha}*/}
-                                                {/*format="YYYY-MM-DD HH:mm"*/}
-                                                {/*inputFormat="YYYY-MM-DD HH:mm"*/}
-                                                {/*name="fecha"*/}
-                                                {/*//onChange={this.handleChangedate}*/}
-                                            {/*/>*/}
+                                            <ControlLabel>Fecha</ControlLabel>
+                                            <DateTimeField
+                                                dateTime={this.state.f}
+                                                format="YYYY-MM-DD hh:mm A"
+                                                name="f"
+                                                inputFormat="YYYY-MM-DD hh:mm A"
+                                                onChange={this.handleChangedate}
+                                            />
                                             <FormControlFeedback/>
                                         </FormGroup>
                                         <FormGroup className="col-lg-5">

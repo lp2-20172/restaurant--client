@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-
 import {del, getList} from '../../../actions/pedido-action'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/lib/Button';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
-import Table from  'react-bootstrap/lib/Table'
-
+import Table from 'react-bootstrap/lib/Table'
+import 'moment/locale/es';
+import Moment from 'react-moment';
 
 class List extends Component {
     componentWillMount() {
@@ -45,7 +45,7 @@ class List extends Component {
                             <tr>
                                 <th className="text-center">#</th>
                                 <th>Confirmado</th>
-                                <th>Servido </th>
+                                <th>Servido</th>
                                 <th>Fecha</th>
                                 <th>Menu</th>
                                 <th>Cliente</th>
@@ -59,14 +59,15 @@ class List extends Component {
                                     <td className="text-center">{index + 1} </td>
                                     <td>{d.confirmado} </td>
                                     <td>{d.servido}</td>
-                                    <td>{d.fecha}</td>
-                                    <td>{d.menu}</td>
-                                    <td>{d.cliente}</td>
-                                    <td>{d.mesa}</td>
+                                    <td>{d.fecha ? <Moment format="LLL">{d.fecha}</Moment> : ''}</td>
+                                    <td>{d.menu_nombre}</td>
+                                    <td>{d.cliente_nombres}</td>
+                                    <td>{d.num_mesa}</td>
                                     <td className="text-center">
-                                        <Link to={`/catalogo/pedido/edit/${d.id}`}  className="btn btn-info btn-sm"
+                                        <Link to={`/catalogo/pedido/edit/${d.id}`} className="btn btn-info btn-sm"
                                               role="button"><i className="fa fa-edit"/></Link> {" "}
-                                        <Button bsSize="small" bsStyle="danger" onClick={() => del(d.id, this.props.history)}><i
+                                        <Button bsSize="small" bsStyle="danger"
+                                                onClick={() => del(d.id, this.props.history)}><i
                                             className="fa fa-trash"/></Button>
                                     </td>
                                 </tr>
@@ -89,8 +90,6 @@ const mapStateToProps = (state) => {
         list: state.pedido.list
     }
 }
-
-
 
 
 /*

@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-
 import {del, getList} from '../../../actions/reserva-action'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -8,7 +7,8 @@ import Button from 'react-bootstrap/lib/Button';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
 import Table from 'react-bootstrap/lib/Table'
 import Moment from 'react-moment';
-import 'moment/locale/es';
+
+
 class List extends Component {
     componentWillMount() {
         this.props.getList("")
@@ -19,7 +19,6 @@ class List extends Component {
         console.log("q:" + q)
         this.props.getList(q)
     }
-
     handleClick = () => {
         this.props.history.push('/catalogo/reservas/new');
     }
@@ -27,7 +26,6 @@ class List extends Component {
     render() {
         let {list, del} = this.props
         if (list) {
-
         } else {
             list = []
         }
@@ -56,7 +54,7 @@ class List extends Component {
                                 <tr key={index}>
                                     <td className="text-center">{index + 1} </td>
                                     <td>
-                                        {d.fecha?<Moment format="LLL">{d.fecha}</Moment>:''}
+                                        {d.fecha ? <Moment format="LLL" locale='es'>{d.fecha}</Moment> : ''}
                                     </td>
                                     <td className="text-center">{d.num_mesa}</td>
                                     <td>{d.cliente_nombres}</td>
@@ -78,7 +76,6 @@ class List extends Component {
         );
     }
 }
-
 List.propTypes = {
     list: PropTypes.array
 }
@@ -88,7 +85,6 @@ const mapStateToProps = (state) => {
         list: state.reserva.list
     }
 }
-
 /*
 const mapDispatchToProps = (dispatch) => {
     return {
